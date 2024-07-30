@@ -8,6 +8,9 @@
 #include "zfeatures.h"
 #include "GL/gl.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define ZB_Z_BITS 16
 
@@ -357,6 +360,10 @@ void *gl_zalloc(GLint size);
 static void gl_free(void* p) { free(p); }
 static void* gl_malloc(GLint size) { return malloc(size); }
 static void* gl_zalloc(GLint size) { return calloc(1, size); }
+#endif
+
+#ifdef __cplusplus
+}
 #endif
 
 #endif /* _tgl_zbuffer_h_ */
